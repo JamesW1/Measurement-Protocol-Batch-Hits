@@ -3,7 +3,7 @@ import requests
 import time
  
 # Set globals, GA Property Id and obtain raw data
-property_id = "UA-145080378-1"
+property_id = "UA-XXXXXXXXX-X"
 csv = 'my_file.csv'
 
 # Initiate counter, hit, dataframe from raw data
