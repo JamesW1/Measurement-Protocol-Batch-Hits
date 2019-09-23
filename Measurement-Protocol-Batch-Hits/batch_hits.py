@@ -19,7 +19,7 @@ for index, row in df.iterrows():
             'v': 1,
             'aip': 1,
             'tid': property_id,
-            'cid': str(row['client_id']),         # where clientId represents a column with header clientId in your csv
+            'cid': row['client_id'],         # where clientId represents a column with header clientId in your csv
             't': 'event',
             'ec': row['event_category'],    # where event_category represents a column with header event_category in your csv
             'ea': row['event_action'],
@@ -30,12 +30,13 @@ for index, row in df.iterrows():
     })
  
     hit += str(params) + '\r\n'             # Append each independent hit to our batched hit as a new line
-    count = count + 1                       # Increment counter
+    count += 1                       # Increment counter
  
     if (count == 20 or index == len(df) - 1):                       # when 20 hits have been batched, or end of file reach, send the batched hit
         connection = http.client.HTTPConnection('www.google-analytics.com')     #Initiate connection to collection endpoint
         r = connection.request('POST', '/batch', hit)                               # ensure /batch endpoint is used
         count = 0                                                               # reset counter for next batch
+        print(hit)
         hit = ''                                                                # reset hits for next batch
  
 # Print time taken to execute all hits
