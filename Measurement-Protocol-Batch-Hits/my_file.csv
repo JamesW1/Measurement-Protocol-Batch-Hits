@@ -1,0 +1,4 @@
+﻿client_id,event_category,event_action,event_label,data_source,cd_09
+101526213.1567422010,Offline Import,CRM Clustering,premium_user,crm,some_dimension1
+991526213.1567422069,Offline Import,CRM Clustering,basic_user,crm,some_dimension2
+341526213.1567422048,Offline Import,CRM Clustering,some_user,crm,some_dimension3
